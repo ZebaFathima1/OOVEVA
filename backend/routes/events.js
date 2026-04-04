@@ -1,5 +1,6 @@
-const express = require('express');
-const multer = require('multer');
+import express from 'express';
+import multer from 'multer';
+import path from 'path';
 const router = express.Router();
 
 // Configure multer for event images
@@ -9,7 +10,7 @@ const eventStorage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, 'event-' + uniqueSuffix + require('path').extname(file.originalname));
+    cb(null, 'event-' + uniqueSuffix + path.extname(file.originalname));
   }
 });
 
@@ -89,4 +90,4 @@ router.delete('/:id', (req, res) => {
   });
 });
 
-module.exports = router;
+export default router;
