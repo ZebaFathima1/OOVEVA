@@ -20,7 +20,14 @@ const Register = () => {
         body: JSON.stringify(form)
       });
 
-      const data = await res.json();
+      const text = await res.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        data = { message: text || 'Registration failed' };
+      }
+
       if (!res.ok) {
         throw new Error(data.message || 'Registration failed');
       }
