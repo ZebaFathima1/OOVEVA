@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ooveva Cafe
 
 A modern cafe website with events, offers, and admin management system.
@@ -75,3 +76,6 @@ Images are stored in:
 - `backend/uploads/offers/` - Offer images
 
 Images are served via `http://localhost:5000/uploads/...`
+=======
+# OOVEVA
+>>>>>>> 5f3b99b47de7ee12d6d20afe3cb0992925a48ff6
