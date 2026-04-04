@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* ===================== CSS VARIABLES ===================== */
+:root {
+  /* ── Dark Core (primary surfaces) ── */
+  --charcoal:    #0d0b09;       /* main dark background */
+  --warm-white:  #faf7f2;       /* primary text on dark */
+  --black:       #070605;       /* footer / deepest surface */
+
+  /* ── Cream / Light Accents ── */
+  --bg:          #f5f0e8;
+  --bg-alt:      #ede7da;
+  --bg-card:     #faf7f2;
+  --bg-dark:     #2a1f14;
+
+  --cream:       #f5f0e8;
+  --beige:       #e8ddd0;
+  --beige-mid:   #d4c5b0;
+  --sand:        #c9b89a;
+
+  --warm-brown:  #7a5c3e;
+  --dark-brown:  #3d2b1f;
+  --text-dark:   #2a1f14;
+  --text-mid:    #5c4a37;
+  --text-light:  rgba(250, 247, 242, 0.6); /* warm-white muted — readable on dark */
+
+  /* ── Gold Palette ── */
+  --gold:        #c9a55a;       /* rgb(201,165,90) — consistent with App.css */
+  --gold-light:  #dbbe7a;
+  --gold-pale:   #f0d9b0;
+
+  --border:      rgba(201, 165, 90, 0.15);
+  --border-gold: rgba(201, 165, 90, 0.25);
+
+  /* ── Typography ── */
+  --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-body:    'Outfit', system-ui, sans-serif;
+
+  /* ── Spacing ── */
+  --section-pad: clamp(5rem, 10vw, 9rem);
+  --container-w: 1200px;
+
+  /* ── Radius ── */
+  --r-sm: 0.75rem;
+  --r-md: 1.5rem;
+  --r-lg: 3rem;
+
+  /* ── Shadows (tuned for dark backgrounds) ── */
+  --shadow-soft:  0 2px 20px rgba(0, 0, 0, 0.3);
+  --shadow-card:  0 6px 30px rgba(0, 0, 0, 0.45);
+  --shadow-deep:  0 16px 50px rgba(0, 0, 0, 0.6);
+  --glow-gold:    0 0 30px rgba(201, 165, 90, 0.4);
+
+  /* ── Easing ── */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ===================== RESET ===================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--charcoal);
+  color: var(--warm-white);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+img { display: block; max-width: 100%; height: 100%; object-fit: cover; }
+a   { text-decoration: none; color: inherit; }
+button { border: none; background: none; cursor: pointer; font-family: inherit; }
+
+/* ===================== SCROLLBAR ===================== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-light); }
+
+/* ===================== UTILITIES ===================== */
+.container {
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 3rem);
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--warm-white);
+  margin-bottom: 1.25rem;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.section-desc {
+  font-size: 1.02rem;
+  color: var(--text-light);
+  max-width: 55ch;
+  line-height: 1.8;
+}
+
+/* ===================== SELECTION ===================== */
+::selection {
+  background: rgba(201, 165, 90, 0.3);
+  color: var(--warm-white);
+}

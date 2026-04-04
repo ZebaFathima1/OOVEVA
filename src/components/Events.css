@@ -1,0 +1,123 @@
+.events {
+  padding: 60px 0;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.events::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle, rgba(201, 165, 90, 0.4) 2px, transparent 2px),
+    radial-gradient(circle, rgba(122, 92, 62, 0.12) 1px, transparent 1px);
+  background-size: 32px 32px, 24px 24px;
+  animation: sprinkleFloat 18s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.events::after {
+  content: '';
+  position: absolute;
+  top: -35%;
+  left: -15%;
+  width: 130%;
+  height: 150%;
+  background-image: radial-gradient(circle at 10% 20%, rgba(201, 165, 90, 0.3) 6px, transparent 6px),
+                    radial-gradient(circle at 70% 60%, rgba(122, 92, 62, 0.2) 8px, transparent 8px),
+                    radial-gradient(circle at 45% 80%, rgba(201, 165, 90, 0.25) 4px, transparent 4px);
+  background-repeat: no-repeat;
+  animation: sprinkleDrift 22s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.events .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.events h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+@media (max-width: 900px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.event-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  background-color: #f8f8f8;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes sprinkleFloat {
+  0% { transform: translateY(0) rotate(0deg); filter: brightness(1); }
+  25% { transform: translateY(-12px) rotate(90deg); filter: brightness(1.5); }
+  50% { transform: translateY(-24px) rotate(180deg); filter: brightness(1.8); }
+  75% { transform: translateY(-12px) rotate(270deg); filter: brightness(1.5); }
+  100% { transform: translateY(0) rotate(360deg); filter: brightness(1); }
+}
+
+@keyframes sprinkleDrift {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.8; filter: brightness(1); }
+  33% { transform: translate(10px, 10px) scale(1.02); opacity: 0.95; filter: brightness(1.4); }
+  66% { transform: translate(5px, 20px) scale(1.01); opacity: 0.9; filter: brightness(1.2); }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.8; filter: brightness(1); }
+}
+
+.event-card h3 {
+  padding: 20px;
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.event-card p {
+  padding: 0 20px;
+  margin: 10px 0;
+  color: #666;
+}
+
+.event-card p:last-child {
+  padding-bottom: 20px;
+}
