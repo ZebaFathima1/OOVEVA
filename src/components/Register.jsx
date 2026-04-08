@@ -14,20 +14,13 @@ const Register = () => {
     setError('');
 
     try {
-      const res = await fetch('/api/auth/register', {
+      const res = await fetch('http://localhost:5000/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)
       });
 
-      const text = await res.text();
-      let data;
-      try {
-        data = JSON.parse(text);
-      } catch {
-        data = { message: text || 'Registration failed' };
-      }
-
+      const data = await res.json();
       if (!res.ok) {
         throw new Error(data.message || 'Registration failed');
       }

@@ -31,7 +31,7 @@ const Admin = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch('/api/events');
+      const response = await fetch('http://localhost:5000/api/events');
       const data = await response.json();
       setEvents(data);
     } catch (error) {
@@ -41,7 +41,7 @@ const Admin = () => {
 
   const fetchOffers = async () => {
     try {
-      const response = await fetch('/api/offers');
+      const response = await fetch('http://localhost:5000/api/offers');
       const data = await response.json();
       setOffers(data);
     } catch (error) {
@@ -51,7 +51,7 @@ const Admin = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch('/api/auth/users');
+      const response = await fetch('http://localhost:5000/api/auth/users');
       const data = await response.json();
       setUsers(data);
     } catch (error) {
@@ -86,8 +86,8 @@ const Admin = () => {
 
     const method = editingEvent ? 'PUT' : 'POST';
     const url = editingEvent 
-      ? `/api/events/${editingEvent}` 
-      : '/api/events';
+      ? `http://localhost:5000/api/events/${editingEvent}` 
+      : 'http://localhost:5000/api/events';
 
     try {
       const response = await fetch(url, {
@@ -132,8 +132,8 @@ const Admin = () => {
 
     const method = editingOffer ? 'PUT' : 'POST';
     const url = editingOffer 
-      ? `/api/offers/${editingOffer}` 
-      : '/api/offers';
+      ? `http://localhost:5000/api/offers/${editingOffer}` 
+      : 'http://localhost:5000/api/offers';
 
     try {
       const response = await fetch(url, {
@@ -163,7 +163,7 @@ const Admin = () => {
   const handleDeleteEvent = async (id) => {
     if (window.confirm('Are you sure you want to delete this event?')) {
       try {
-        const response = await fetch(`/api/events/${id}`, {
+        const response = await fetch(`http://localhost:5000/api/events/${id}`, {
           method: 'DELETE'
         });
         if (response.ok) {
@@ -179,7 +179,7 @@ const Admin = () => {
   const handleDeleteOffer = async (id) => {
     if (window.confirm('Are you sure you want to delete this offer?')) {
       try {
-        const response = await fetch(`/api/offers/${id}`, {
+        const response = await fetch(`http://localhost:5000/api/offers/${id}`, {
           method: 'DELETE'
         });
         if (response.ok) {

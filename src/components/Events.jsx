@@ -10,7 +10,7 @@ const Events = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch('/api/events');
+      const response = await fetch('http://localhost:5000/api/events');
       const data = await response.json();
       setEvents(data);
     } catch (error) {
@@ -27,7 +27,7 @@ const Events = () => {
             const imageUrl = event.image
               ? event.image.startsWith('http')
                 ? event.image
-                : `${event.image}`
+                : `http://localhost:5000${event.image}`
               : null;
 
             return (

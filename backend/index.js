@@ -17,6 +17,7 @@ const __dirname = path.dirname(__filename);
 dotenv.config();
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 const isVercel = Boolean(process.env.VERCEL);
 const dbFile = isVercel ? '/tmp/database.db' : path.join(__dirname, '../database.db');
 const uploadDir = isVercel ? '/tmp/uploads' : path.join(__dirname, 'uploads');
@@ -90,5 +91,9 @@ app.set('upload', upload);
 app.use('/api/events', eventsRouter);
 app.use('/api/offers', offersRouter);
 app.use('/api/auth', authRouter);
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 export default app;

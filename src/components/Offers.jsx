@@ -6,7 +6,7 @@ const Offers = () => {
 
   const fetchOffers = async () => {
     try {
-      const response = await fetch('/api/offers');
+      const response = await fetch('http://localhost:5000/api/offers');
       const data = await response.json();
       setOffers(data);
     } catch (error) {
@@ -30,7 +30,7 @@ const Offers = () => {
             const imageUrl = offer.image
               ? offer.image.startsWith('http')
                 ? offer.image
-                : `${offer.image}`
+                : `http://localhost:5000${offer.image}`
               : null;
 
             return (
